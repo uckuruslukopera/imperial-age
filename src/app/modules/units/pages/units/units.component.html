@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="r-units__filters col-sm-12 col-md-4">
+            <app-pills [filters]="ageFilters"
+                       [selectedFilter]="selectedAgeFilter"
+                       (filterSelectedEvent)=selectAgeFilter($event)></app-pills>
+            <app-cost-range [filters]="costFilters"
+                            [selectedFilters]="selectedCostFilters"
+                            (filterSelectedEvent)=selectCostFilter($event)
+                            (filterDeselectedEvent)=deselectCostFilter($event)
+                            (sliderChangedEvent)=updateCostFilter($event)></app-cost-range>
+        </div>
+        <div class="r-units__list col-sm-12 col-md-8">
+            <app-table [units]="units"
+                       (unitSelectedEvent)=setSelectedUnit($event)></app-table>
+        </div>
+    </div>
+</div>
+
+
+

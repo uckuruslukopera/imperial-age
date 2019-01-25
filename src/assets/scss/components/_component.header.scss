@@ -1,0 +1,52 @@
+.c-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 15px 40px;
+    justify-content: space-between;
+    background-color: #fafafa;
+    font-size: 1.5rem;
+    @media screen and (max-width: 768px) {
+        justify-content: center;
+    }
+    &__left {
+        padding: 5px 0;
+        ul {
+            padding-inline-start: 0px;
+        }
+        &-list {
+            list-style: none;
+            display: flex;
+            &-item{
+                a {
+                    color: blue;
+                    text-decoration: none;
+                    &:hover {
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+    &__middle {
+        display: flex;
+        align-content: center;
+    }
+    &__right {
+        padding: 5px 0;
+        ul {
+            padding-inline-start: 0px;
+        }
+        &-list {
+            list-style: none;
+            display: flex;
+            &-item{
+                padding: 0px 10px;
+
+            }
+        }
+    }
+}
+
+

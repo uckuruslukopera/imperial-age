@@ -1,0 +1,16 @@
+.r-page-not-found {
+    &__no-data {
+        position: absolute;
+        left: 0;
+        top: 200px;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        color: gainsboro;
+        i {
+            font-size: 120px;
+            display: block;
+            margin-bottom: 20px;;
+        }
+    }
+}
