@@ -9,7 +9,8 @@ import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/store/state/app.state';
 import { LoadFilteredUnits } from 'src/app/store/actions/unit.actions';
 import { selectUnitList } from 'src/app/store/selectors/unit.selectors';
-import { selectAgeFilterList, selectCostFilterList, selectSelectedAgeFilter, selectSelectedCostFilters } from 'src/app/store/selectors/filter.selectors';
+import { selectAgeFilterList, selectCostFilterList,
+          selectSelectedAgeFilter, selectSelectedCostFilters } from 'src/app/store/selectors/filter.selectors';
 import { SelectCostFilter, SelectAgeFilter, DeselectCostFilter, UpdateCostFilter } from 'src/app/store/actions/filter.actions';
 
 @Component({
@@ -18,7 +19,7 @@ import { SelectCostFilter, SelectAgeFilter, DeselectCostFilter, UpdateCostFilter
 })
 export class UnitsComponent implements OnInit {
   @HostBinding('class.r-units') true;
-  
+
   units: Unit[];
   ageFilters: Filter[];
   costFilters: Filter[];
@@ -31,15 +32,15 @@ export class UnitsComponent implements OnInit {
     private router: Router,
     private store: Store<AppState>
   ) {
-    
+
   }
 
   ngOnInit() {
     this.titleService.setTitle('Units Page');
 
-    this.store.pipe(select(selectUnitList)).subscribe(units => this.units = units);   
-    this.store.pipe(select(selectAgeFilterList)).subscribe(filters => this.ageFilters = filters);   
-    this.store.pipe(select(selectCostFilterList)).subscribe(filters => this.costFilters = filters);   
+    this.store.pipe(select(selectUnitList)).subscribe(units => this.units = units);
+    this.store.pipe(select(selectAgeFilterList)).subscribe(filters => this.ageFilters = filters);
+    this.store.pipe(select(selectCostFilterList)).subscribe(filters => this.costFilters = filters);
     this.store.pipe(select(selectSelectedAgeFilter)).subscribe(filter => this.selectedAgeFilter = filter);
     this.store.pipe(select(selectSelectedCostFilters)).subscribe(filter => this.selectedCostFilters = filter);
   }

@@ -1,5 +1,5 @@
-import { Action } from "@ngrx/store";
-import { Filter } from "src/app/modules/core/interfaces/filter.model";
+import { Action } from '@ngrx/store';
+import { Filter } from 'src/app/modules/core/interfaces/filter.model';
 
 export enum FilterActionsEnum {
     LoadAgeFilters = '[Filter] Load Age Filters',
@@ -10,7 +10,7 @@ export enum FilterActionsEnum {
     SelectCostFilter = '[Filter] Select Cost Filter',
     DeselectCostFilter = '[Filter] Deselect Cost Filter',
     UpdateCostFilter = '[Filter] Update Cost Filter'
-} 
+}
 
 export class LoadAgeFilters implements Action {
     public readonly type = FilterActionsEnum.LoadAgeFilters;
@@ -50,12 +50,12 @@ export class UpdateCostFilter implements Action {
     constructor(public payload: Filter) {}
 }
 
-export type FilterActions = 
+export type FilterActions =
     LoadAgeFilters |
     LoadAgeFiltersSuccess |
     LoadCostFilters |
     LoadCostFiltersSuccess |
-    SelectAgeFilter | 
+    SelectAgeFilter |
     SelectCostFilter |
     DeselectCostFilter |
-    UpdateCostFilter
+    UpdateCostFilter;

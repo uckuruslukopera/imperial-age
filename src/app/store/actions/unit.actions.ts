@@ -1,6 +1,6 @@
-import { Action } from "@ngrx/store";
-import { Unit } from "src/app/modules/core/interfaces/unit.model";
-import { Filter } from "src/app/modules/core/interfaces/filter.model";
+import { Action } from '@ngrx/store';
+import { Unit } from 'src/app/modules/core/interfaces/unit.model';
+import { Filter } from 'src/app/modules/core/interfaces/filter.model';
 
 export enum UnitActionsEnum {
     LoadUnits = '[Unit] Load Units',
@@ -8,7 +8,7 @@ export enum UnitActionsEnum {
     LoadUnitDetails = '[Unit] Load Unit Details',
     LoadUnitDetailsSuccess = '[Unit] Load Unit Details Success',
     LoadFilteredUnits = '[Unit] Load Filtered Units'
-} 
+}
 
 export class LoadUnits implements Action {
     public readonly type = UnitActionsEnum.LoadUnits;
@@ -35,10 +35,9 @@ export class LoadFilteredUnits implements Action {
 }
 
 
-export type UnitActions = 
+export type UnitActions =
     LoadUnits |
     LoadUnitsSuccess |
     LoadUnitDetails |
     LoadUnitDetailsSuccess |
-    LoadFilteredUnits
-    
+    LoadFilteredUnits;

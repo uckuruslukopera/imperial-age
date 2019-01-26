@@ -1,4 +1,4 @@
-import { Filter } from "src/app/modules/core/interfaces/filter.model";
+import { Filter } from 'src/app/modules/core/interfaces/filter.model';
 
 export interface FilterState {
     ageFilters: Filter[];
@@ -12,4 +12,4 @@ export const initialFilterState: FilterState = {
     selectedAgeFilter: null,
     costFilters: [],
     selectedCostFilters: []
-}
+};

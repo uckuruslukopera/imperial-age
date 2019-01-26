@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'units/:id', component: UnitDetailsComponent
   },
-  { 
+  {
     path: '', redirectTo: 'units', pathMatch: 'full'
   },
 ];

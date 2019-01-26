@@ -21,14 +21,15 @@ export class UnitsService {
     return new Promise((resolve, reject) => {
       let filteredUnits = data.units;
       filters.forEach(filter => {
-        if (filter.filterKey == 'age' && filter.filterValue) {
-          filteredUnits = filteredUnits.filter(unit => unit['age'] == filter.filterValue);
-        } else if (filter.filterKey == 'age') {
-          filteredUnits = filteredUnits
+        if (filter.filterKey === 'age' && filter.filterValue) {
+          filteredUnits = filteredUnits.filter(unit => unit['age'] === filter.filterValue);
+        } else if (filter.filterKey === 'age') {
+          filteredUnits = filteredUnits;
         } else {
-          filteredUnits = filteredUnits.filter(unit => unit.cost && unit.cost[filter.filterKey] ? unit.cost[filter.filterKey] <= filter.filterValue: false)
+          filteredUnits = filteredUnits.filter(unit => unit.cost && unit.cost[filter.filterKey]
+                                                                  ? unit.cost[filter.filterKey] <= filter.filterValue : false);
         }
-      }); 
+      });
       resolve(filteredUnits);
     });
   }

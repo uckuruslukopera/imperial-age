@@ -1,5 +1,5 @@
 export interface Filter {
-    filterKey: string,
-    filterValue: any,
-    text: string
+    filterKey: string;
+    filterValue: any;
+    text: string;
 }
