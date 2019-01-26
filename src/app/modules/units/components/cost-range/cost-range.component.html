@@ -2,15 +2,15 @@
 
 <div class="c-cost-range__costs">
     <div *ngFor="let filter of filters" class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="{{filter.filterKey}}-check" (change)="filterChecked($event, filter)">
-        <label class="custom-control-label" for="{{filter.filterKey}}-check">{{filter.text}} (0-{{filter.filterValue}})</label>
+        <input type="checkbox" class="custom-control-input" id="{{filter?.filterKey}}-check" (change)="filterChecked($event, filter)">
+        <label class="custom-control-label" for="{{filter?.filterKey}}-check">{{filter?.text}} (0-{{filter?.filterValue}})</label>
         <input type="range"
                class="custom-range"
                min="0"
                max="200"
-               id="{{filter.filterKey}}-range"
-               [disabled]="!this.selectedFilters.includes(filter)"
-               [value]="filter.filterValue"
+               id="{{filter?.filterKey}}-range"
+               [disabled]="this.selectedFilters && !this.selectedFilters.includes(filter)"
+               [value]="filter?.filterValue"
                (change)="sliderChanged($event, filter)">
     </div>
 </div>

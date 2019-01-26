@@ -1,8 +1,11 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { TitleService } from 'src/app/modules/core/services/title.service';
-import { UnitsService } from '../../services/units.service';
 import { Unit } from 'src/app/modules/core/interfaces/unit.model';
 import { ActivatedRoute } from '@angular/router';
+import { AppState } from 'src/app/store/state/app.state';
+import { Store, select } from '@ngrx/store';
+import { LoadUnitDetails } from 'src/app/store/actions/unit.actions';
+import { selectSelectedUnit } from 'src/app/store/selectors/unit.selectors';
 
 @Component({
   selector: 'app-unit-details',
@@ -14,16 +17,18 @@ export class UnitDetailsComponent implements OnInit {
 
   constructor(
     private titleService: TitleService,
-    private unitsService: UnitsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private store: Store<AppState>
   ) { }
 
   ngOnInit() {
     this.titleService.setTitle('Unit Details Page');
+
     this.route.params.subscribe(params => {
-      this.unitsService.setSelectedUnit(+params['id']);
+      this.store.dispatch(new LoadUnitDetails(+params['id']));
     });
 
-    this.unitsService.selectedUnit$.subscribe(unit => this.unit = unit);
+    this.store.pipe(select(selectSelectedUnit)).subscribe(unit => this.unit = unit);
+    
   }
 }
