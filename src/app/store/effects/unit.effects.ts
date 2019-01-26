@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import { AppState } from "../state/app.state";
-import { LoadUnits, UnitActionsEnum, LoadUnitsSuccess, LoadUnitDetails, LoadUnitDetailsSuccess, LoadAgeFilteredUnits, LoadCostFilteredUnits, LoadFilteredUnits } from "../actions/unit.actions";
+import { LoadUnits, UnitActionsEnum, LoadUnitsSuccess, LoadUnitDetails, LoadUnitDetailsSuccess, LoadFilteredUnits } from "../actions/unit.actions";
 import { UnitsService } from "src/app/modules/units/services/units.service";
 
 import { switchMap, map, withLatestFrom } from 'rxjs/operators';
@@ -33,7 +33,7 @@ export class UnitEffects {
         withLatestFrom(this.store.pipe(select(selectUnitList))),
         switchMap(([id, units]) => {
             const selectedUnit = units.filter(unit => unit.id === id)[0];
-            return of(new LoadUnitDetailsSuccess(selectedUnit))
+            return of(new LoadUnitDetailsSuccess(selectedUnit));
         })
     )
 
@@ -42,6 +42,6 @@ export class UnitEffects {
         ofType<LoadFilteredUnits>(UnitActionsEnum.LoadFilteredUnits),
         map(action => action.payload),
         switchMap((filters) => this.service.getFilteredUnits(filters)),
-        switchMap((units) => of(new LoadUnitsSuccess(units))
+        switchMap((units) => of(new LoadUnitsSuccess(units)))
     )
 }

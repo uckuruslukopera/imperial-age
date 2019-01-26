@@ -7,7 +7,7 @@ import { Filter } from 'src/app/modules/core/interfaces/filter.model';
 
 import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/store/state/app.state';
-import { LoadUnits, LoadAgeFilteredUnits, LoadCostFilteredUnits, LoadFilteredUnits } from 'src/app/store/actions/unit.actions';
+import { LoadFilteredUnits } from 'src/app/store/actions/unit.actions';
 import { selectUnitList } from 'src/app/store/selectors/unit.selectors';
 import { selectAgeFilterList, selectCostFilterList, selectSelectedAgeFilter, selectSelectedCostFilters } from 'src/app/store/selectors/filter.selectors';
 import { SelectCostFilter, SelectAgeFilter, DeselectCostFilter, UpdateCostFilter } from 'src/app/store/actions/filter.actions';
